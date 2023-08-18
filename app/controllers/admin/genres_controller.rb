@@ -9,8 +9,9 @@ class Admin::GenresController < ApplicationController
     if @genre.save
       redirect_to admin_genres_path, notice: "You have created genre successfully."
     else
+      @genre = Genre.new
       @genres = Genre.page(params[:page])
-      render 'index'
+      redirect_to admin_genres_path, notice: "Failed to create genre."
     end
   end
 
@@ -23,7 +24,7 @@ class Admin::GenresController < ApplicationController
     if @genre.update(genre_params)
       redirect_to admin_genres_path, notice: "You have updated genre successfully."
     else
-      render "edit"
+      redirect_to edit_admin_genre_path(@genre), notice: "Failed to update genre."
     end
   end
 

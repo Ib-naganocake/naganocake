@@ -1,2 +1,12 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-3 offset-1">
+      <div class="text-center">
+        <h3 style="background: #f3f3f3;">配送先編集</h3>
+      </div>
+    </div>
+  </div>
+  <div class="m-5">
+    <%= render 'form', address: @address %>
+  </div>
+</div>

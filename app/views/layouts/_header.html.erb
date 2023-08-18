@@ -12,10 +12,10 @@
           <div class="mr-3  menu"><%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-outline-secondary" %></div>
           <div class="menu"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %></div>
         <% elsif customer_signed_in? %>
-          <div class="mr-3 menu"><%= link_to 'マイページ', my_page_custmoers_path, class: "btn btn-outline-secondary" %></div>
+          <div class="mr-3 menu"><%= link_to 'マイページ', my_page_customers_path, class: "btn btn-outline-secondary" %></div>
           <div class="mr-3 menu"><%= link_to '商品一覧', items_path, class: "btn btn-outline-secondary" %></div>
           <div class="mr-3 menu"><%= link_to 'カート', cart_items_path, class: "btn btn-outline-secondary" %></div>
-          <div class="menu"><%= link_to 'ログアウト', destroy_custmers_path, method: :delete, class: "btn btn-outline-secondary" %></div>
+          <div class="menu"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %></div>
         <% else %>
           <div class="mr-3 menu"><%= link_to 'About', about_path, class: "btn btn-outline-secondary" %></div>
           <div class="mr-3 menu"><%= link_to '商品一覧', items_path, class: "btn btn-outline-secondary" %></div>

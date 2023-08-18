@@ -1,6 +1,15 @@
 ja:
   activerecord:
     attributes:
+      customer:
+        family_name: 名字
+        first_name: 名前
+        family_name_kana: 名字(カナ)
+        first_name_kana: 名前(カナ)
+        postal_code: 郵便番号
+        address: 住所
+        telephone_number: 電話番号
+        email: メールアドレス
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン

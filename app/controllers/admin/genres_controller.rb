@@ -9,8 +9,6 @@ class Admin::GenresController < ApplicationController
     if @genre.save
       redirect_to admin_genres_path, notice: "You have created genre successfully."
     else
-      @genre = Genre.new
-      @genres = Genre.page(params[:page])
       redirect_to admin_genres_path, notice: "Failed to create genre."
     end
   end

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "about" => "homes#about"
     resources :items, only: [:index, :show]
-    resource :customers, only: [:update] do
+    resource :customers, only: [] do
+      patch "update" => "customers#update"
       get "my_page" => "customers#show"
       get "information/edit" => "customers#edit"
       get "confirm_withdraw"

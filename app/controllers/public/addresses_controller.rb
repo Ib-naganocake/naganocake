@@ -11,7 +11,7 @@ class Public::AddressesController < ApplicationController
     if @address.save
       redirect_to request.referer, notice: '配送先を追加しました'
     else
-      @addresses = Address.all
+      @addresses = Address.page(params[:page])
       render :index
     end
   end

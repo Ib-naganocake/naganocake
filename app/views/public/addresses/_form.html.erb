@@ -17,7 +17,11 @@
       <%= f.text_field :name, class:"form-control", placeholder:"令和道子", autocomplete: "name" %>
     </div>
     <div class="col-2 offset-3 p-0">
-      <%= f.submit '新規登録', class:"btn btn-success btn-block" %>
+      <% if address.new_record? %>
+        <%= f.submit '新規登録', class:"btn btn-success btn-block" %>
+      <% else %>
+        <%= f.submit '編集', class:"btn btn-success btn-block" %>
+      <% end %>
     </div>
   </div>
 <% end %>

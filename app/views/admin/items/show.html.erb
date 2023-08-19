@@ -31,8 +31,8 @@
             (税抜価格)
           </td>
           <td class="pt-4">
-              <%= number_to_currency(@item.add_tax_price, format: "%n") %>
-              (<%= number_to_currency(@item.price_without_tax, format: "%n") %>)円
+            <%= number_to_currency(@item.add_tax_price, format: "%n") %>
+            (<%= number_to_currency(@item.price_without_tax, format: "%n") %>)円
           </td>
         </tr>
         <tr>

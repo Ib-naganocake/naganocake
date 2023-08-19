@@ -16,9 +16,9 @@ class Admin::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to admin_customer_path(@customer), notice: "会員情報の編集に成功しました。"
     else
-    # エラー以外の元のデータを代入する
-    @original_customer.attributes.each do |attr, value|
-      @customer[attr] = value unless @customer.errors[attr].empty?
+    # エラー箇所に元のデータを代入する
+      @original_customer.attributes.each do |attr, value|
+        @customer[attr] = value unless @customer.errors[attr].empty?
     end
       render :edit, notice: "会員情報の編集に失敗しました。"
     end

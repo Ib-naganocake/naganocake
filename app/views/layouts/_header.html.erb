@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row">
+<div class="container-fulid border-bottom">
+  <div class="row mx-4 my-3">
     <div class="col-4">
       <div class="mt-4 logo"><%= link_to 'LOGO', root_path  %></div>
     </div>
@@ -8,7 +8,7 @@
         <% if admin_signed_in? %>
           <div class="mr-3 menu"><%= link_to '商品一覧', admin_items_path, class: "btn btn-outline-secondary" %></div>
           <div class="mr-3 menu"><%= link_to '会員一覧', admin_customers_path, class: "btn btn-outline-secondary" %></div>
-          <div class="mr-3 menu"><%= link_to '注文履歴一覧', admin_top_path, class: "btn btn-outline-secondary" %></div>
+          <div class="mr-3 menu"><%= link_to '注文履歴一覧', admin_root_path, class: "btn btn-outline-secondary" %></div>
           <div class="mr-3  menu"><%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-outline-secondary" %></div>
           <div class="menu"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %></div>
         <% elsif customer_signed_in? %>

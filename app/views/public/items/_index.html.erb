@@ -11,11 +11,11 @@
         <% end %>
       </div> 
       <% if item.is_sales == false %>
-          <h5 class="text-danger m-0">売り切れ</h5>
-        <% end %>
+        <h5 class="text-danger m-0">売り切れ</h5>
+      <% end %>
       <h5>
         <%= link_to item_path(item) do %>
-        <%= item.name %>
+          <%= item.name %>
         <% end %>
       </h5>
       <p>

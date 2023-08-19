@@ -1,4 +1,5 @@
 module Admin::HomesHelper
+  
   def calculate_order_total_amount(order)
     total_amount = 0
     order.order_datails.each do |order_datail|

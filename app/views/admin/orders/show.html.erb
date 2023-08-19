@@ -1,41 +1,10 @@
 <div class="container mt-5">
+  <p class="<%= flash[:color] %>"><%= flash[:notice] %></p>
   <div class="row">
     <div class="offset-1 text-center">
       <h3 class="px-4" style="background: #f3f3f3">注文履歴詳細</h3>
     </div>
   </div>
-
-  <div class="row mt-3">
-    <table class="table table-borderless">
-      <%= fomr_with model @order, url: admin_order_path(@order) do |f| %>
-        <tr>
-          <th>購入者</th>
-          <td><u><%= "#{@order.customer.family_name} #{@order.customer.first_name}" %></u></td>
-        </tr>
-        <tr>
-          <th>注文日</th>
-          <td><%= @order.created_at.strftime("%Y-%m-%d") %></td>
-        </tr>
-        <tr>
-          <th>配送先</th>
-          <td>〒<%= "#{@order.postal_code} #{@order.shipping_address}" %></td>
-        </tr>
-        <tr>
-          <th></th>
-          <td><%= @order.name %></td>
-        </tr>
-        <tr>
-          <th>支払方法</th>
-          <td><%= @order.payment_method %></td>
-        </tr>
-        <tr>
-          <th>注文ステータス</th>
-          <td>
-            <%= f.select :transaction_status, *[0..4], {include_blank: "#{@order.transaction_status}"}, class: "form-control mr-4" %>
-            <%= f.submit '更新', class: "btn btn-success" %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
+  <%= render 'order_datail', order: @order %>
+  <%= render 'order_items', order: @order %>
 </div>

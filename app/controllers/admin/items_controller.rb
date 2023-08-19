@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
+    @items = Item.page(params[:page])
   end
 
   def new
@@ -38,3 +39,4 @@ class Admin::ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :image, :price_without_tax, :is_sales, :genre_id)
   end
 end
+

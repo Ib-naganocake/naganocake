@@ -10,13 +10,22 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to my_page_customers_path
+      redirect_to my_page_customers_path, notice: "会員の登録情報を変更しました。"
     else
       render :edit
     end
   end
 
   def confirm_withdraw
+  end
+
+  def withdraw
+    if current_customer.update(is_active: false)
+      reset_session
+      redirect_to root_path, notice: "退会処理が完了しました。"
+    else
+      render :confirm_withdraw, notice: "退会処理に失敗しました。"
+    end
   end
 
   private

@@ -1,6 +1,7 @@
 <%= form_with url: cart_items_path, model: cart_item do |f| %>
   <div class="form-group d-flex w-75">
     <%= f.select :amount, *[1..10], {include_blank: '個数選択'}, class: "form-control mr-4" %>
+    <%= f.hidden_field :item_id, :value => item.id %>
     <%= f.submit 'カートに入れる', class:"btn btn-success" %>
   </div>
 <% end %>

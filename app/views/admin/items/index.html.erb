@@ -1,3 +1,46 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
-<%= link_to 'new', new_admin_item_path %>
+<div class="container">
+  <div class="row m-3">
+    <div class="col-3 mr-auto">
+      <h3 class="px-4 text-center" style="background: #f3f3f3">商品一覧</h3>
+    </div>
+    <div class="col-2">
+      <%= link_to '+', new_admin_item_path, class: "btn rounded-circle border-right border-bottom" %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <table class="table table-borderless">
+        <thead class="border-top" style="background: #f3f3f3">
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th class="pr-0">税抜価格</th>
+            <th class="pr-5 pl-0">ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody class=border-bottom>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.id %></td>
+              <td><%= link_to item.name, admin_item_path(item), class: "text-reset" %></td>
+              <td class="pr-0"><%= number_to_currency(item.price_without_tax, format: "%n") %></td>
+              <td class="pr-5 pl-0"><%= item.genre.name %></td>
+              <td>
+                <% if item.is_sales == true %>
+                  <p class="text-success"><strong><%= item_status_name(item) %></strong></p>
+                <% else %>
+                  <p class="text-secondary"><strong><%= item_status_name(item) %></strong></p>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= paginate @items %>
+  </div>
+</div>
+

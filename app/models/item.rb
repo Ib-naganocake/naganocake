@@ -4,10 +4,10 @@ class Item < ApplicationRecord
   belongs_to :genre
 
   has_one_attached :image
-  validates :name, presence:true
+  validates :name, presence:true, uniqueness: true
   validates :description, presence:true
   validates :price_without_tax, presence:true
-  
+
   # 商品画像のサイズ調整
   def get_image(width, height)
     unless image.attached?
@@ -18,4 +18,5 @@ class Item < ApplicationRecord
   image.variant(resize_to_limit: [width, height]).processed
   end
   
+
 end

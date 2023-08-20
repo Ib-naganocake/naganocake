@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :customer
+  
+  has_many :items, through: :order_details
 
   validates :total_price, presence:true
   validates :shipping_fee, presence:true

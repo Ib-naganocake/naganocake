@@ -12,17 +12,12 @@
     <tbody>
       <tr>
         <td>
-          <%= image_tag cart_item.item.get_image(30,30) %>
+          <%= image_tag cart_item.item.get_image(50,50) %>
           <%= cart_item.item.name %>
         </td>
         <td>¥<%= ((cart_item.item.price_without_tax * 1.1).floor).to_s(:delimited) %></td>
         <td>
-          <%= form_for(cart_item, url: cart_item_path(cart_item), method: :patch) do |f| %>
-            <p>
-              <%= f.number_field :amount,*[1..10] %>
-              <%= f.submit "変更", class: "btn btn-primary" %>
-            </p>
-          <% end %>
+          <%= cart_item.amount %>
           </td>
         <td>¥<%= ((cart_item.item.price_without_tax * 1.1).floor * cart_item.amount).to_s(:delimited) %></td>
         <td>

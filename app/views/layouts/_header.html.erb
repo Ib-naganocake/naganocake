@@ -1,9 +1,18 @@
 <div class="container-fulid border-bottom">
   <div class="row mx-4 my-3">
-    <div class="col-4">
-      <div class="mt-4 logo"><%= link_to 'LOGO', root_path  %></div>
+    <div class="col-3">
+      <div class="logo">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png' %>
+        <% end %>
+      </div>
     </div>
-    <div class="col-8">
+    <div class="col-4">
+      <% if customer_signed_in?%>
+        <p><%= "ようこそ、#{current_customer.family_name}#{current_customer.first_name}さん！" %></p>
+      <% end %>
+    </div>
+    <div class="col-5">
       <div class="my-2 row justify-content-end">
         <% if admin_signed_in? %>
           <div class="mr-3 menu"><%= link_to '商品一覧', admin_items_path, class: "btn btn-outline-secondary" %></div>

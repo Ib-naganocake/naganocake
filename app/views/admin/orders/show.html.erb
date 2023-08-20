@@ -5,6 +5,6 @@
       <h3 class="px-4" style="background: #f3f3f3">注文履歴詳細</h3>
     </div>
   </div>
-  <%= render 'order_datail', order: @order %>
-  <%= render 'order_items', order: @order %>
+  <%= render 'show', order: @order %>
+  <%= render 'order_datail', order: @order, order_datail: @order_datail %>
 </div>

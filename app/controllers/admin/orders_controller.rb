@@ -2,6 +2,7 @@ class Admin::OrdersController < ApplicationController
   before_action :set_order, only: [:show, :update]
 
   def show
+    @order_datail = @order.order_datails
   end
 
   def index

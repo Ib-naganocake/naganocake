@@ -6,17 +6,18 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
-    customer = Customer.find(params[:id])
-    @orders = customer.orders
+    customer_id = params[:customer_id]
+    @customer = Customer.find(customer_id)
+    @orders = @customer.orders.page(params[:page])
   end
 
   def update
     if @order.update(order_params)
-      flash[:notice] = "注文ステータスの更新に成功しました。"
+      flash[:order_notice] = "注文ステータスの更新に成功しました。"
       flash[:color] = "text-success"
       redirect_to admin_order_path(@order)
     else
-      flash[:notice] = "注文ステータスの更新に失敗しました。"
+      flash[:order_notice] = "注文ステータスの更新に失敗しました。"
       flash[:color] = "text-danger"
       render :show
     end

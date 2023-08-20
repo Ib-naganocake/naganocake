@@ -1,8 +1,8 @@
 <div class="row mt-5">
-  <table class="table">
+  <table class="table text-center border-bottom">
     <thead style="background: #f3f3f3">
       <tr>
-        <th>商品名</th>
+        <th class="text-left">商品名</th>
         <th>単価（税込）</th>
         <th>数量</th>
         <th>小計</th>
@@ -12,17 +12,17 @@
     </thead>
     <tbody>
       <% order_detail.each do |order_detail| %>
-        <%= form_with model: [order, order_detail], url: admin_order_order_detail_path(order, order_detail), local: false do |f| %>
-          <tr>
-            <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.price_including_tax %></td>
+        <%= form_with model: [order, order_detail], url: admin_order_order_detail_path(order, order_detail), data: { turbolinks: false } do |f| %>
+          <tr class="align-items-center">
+            <td class="text-left"><%= order_detail.item.name %></td>
+            <td><%= order_detail.price_including_tax.to_s(:delimited) %></td>
             <td><%= order_detail.amount %></td>
-            <td><%= calculate_subtotal(order_detail) %></td>
+            <td><%= calculate_subtotal(order_detail).to_s(:delimited) %></td>
             <td>
               <%= f.select :production_status, OrderDetail.production_statuses.keys.map { |status| [I18n.t("enums.order_detail.production_status.#{status}"), status] },
               selected: order_detail.production_status, class: "form-control" %>
             </td>
-            <td><%= f.submit "更新", class: "btn btn-success" %></td>
+            <td><%= f.submit "更新", class: "btn btn-sm btn-success" %></td>
           </tr>
         <% end %>
       <% end %>

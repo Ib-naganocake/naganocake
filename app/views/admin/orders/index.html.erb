@@ -17,7 +17,7 @@
         <tbody>
           <% @orders.each do |orders| %>
             <tr>
-              <td><u><%= link_to orders.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(orders), class: "text-reset" %></u></td>
+              <td><u><%= link_to orders.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(orders), data: { turbolinks: false }, class: "text-reset" %></u></td>
               <td><%= calculate_order_total_amount(orders) %></td>
               <td><%= orders.transaction_status_i18n %></td>
             </tr>

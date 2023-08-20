@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <% order_detail.each do |order_detail| %>
-        <%= form_with model: [order, order_detail], url: admin_order_order_detail_path(order, order_detail), data: { turbolinks: false } do |f| %>
+        <%= form_with model: [order, order_detail], url: admin_order_order_detail_path(order, order_detail) do |f| %>
           <tr class="align-items-center">
             <td class="text-left"><%= order_detail.item.name %></td>
             <td><%= order_detail.price_including_tax.to_s(:delimited) %></td>

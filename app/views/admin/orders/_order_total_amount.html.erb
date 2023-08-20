@@ -1,0 +1,14 @@
+ <table class="table table-borderless">
+  <tr>
+    <th>商品合計</th>
+    <td class="text-right"><%= (order.total_price - order.shipping_fee).to_s(:delimited) %>円</td>
+  </tr>
+  <tr>
+    <th>送料</th>
+    <td class="text-right"><%= order.shipping_fee.to_s(:delimited) %>円</td>
+  </tr>
+  <tr>
+    <th>請求金額合計</th>
+    <td class="text-right font-weight-bold"><%= order.total_price.to_s(:delimited) %>円</td>
+  </tr>
+</table>

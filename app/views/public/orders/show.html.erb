@@ -30,7 +30,7 @@
         </tr>
         <tr>
           <td style="background: #f3f3f3;">ステータス</td>
-          <td><%= render 'order_status', order: @order %></td>
+          <td><%= @order.transaction_status_i18n %></td>
         </tr>
       </table>
     </div>

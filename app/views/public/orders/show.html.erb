@@ -48,7 +48,7 @@
   </div>
   <div class="row">
     <div class="col-10">
-      <h5 class="font-weight-bold">請求情報</h5>
+      <h5 class="font-weight-bold">注文内容</h5>
       <table class="table table-bordered">
         <tr style="background: #f3f3f3;">
           <td>商品</td>
@@ -61,7 +61,7 @@
             <td><%= order_detail.item.name %></td>
             <td><%= order_detail.price_including_tax %></td>
             <td><%= order_detail.amount %></td>
-            <td><%= ( order_detail.price_including_tax * order_detail.amount ).to_s(:delimited) %></td>
+            <td><%= (order_detail.price_including_tax * order_detail.amount).to_s(:delimited) %></td>
           </tr>
         <% end %>
       </table>

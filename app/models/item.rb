@@ -21,5 +21,5 @@ class Item < ApplicationRecord
   def add_tax_price
       (self.price_without_tax * 1.1).floor
   end
-  
+
 end

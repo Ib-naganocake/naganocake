@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       end
     end
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :searches, only: [:index]
   end
 
   namespace :admin do
@@ -38,5 +39,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :index, :update] do
       resources :order_details, only: [:update]
     end
+    resources :searches, only: [:index]
   end
+
 end

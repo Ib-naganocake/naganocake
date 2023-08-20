@@ -62,10 +62,4 @@ class Public::OrdersController < ApplicationController
   params.require(:order).permit(:name, :total_price, :postal_code, :payment_method, :shipping_address , :shipping_fee, :customer_id)
   end
 
-  def confirm_present?
-    unless params[:order][:postal_code].present? && params[:order][:shipping_address].present? && params[:order][:name].present?
-      render :new
-    end
-  end
-
 end

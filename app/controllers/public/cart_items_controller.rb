@@ -1,9 +1,11 @@
 class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
-  
+
   def index
+    @cart_items = current_customer.cart_items
+    @total_price = @cart_items.sum{|cart_item|cart_item.item.price_without_tax * 1.1 * cart_item.amount}
   end
-  
+
   def create
     @cart_item = current_customer.cart_items.new(cart_item_params)
     if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
@@ -17,10 +19,10 @@ class Public::CartItemsController < ApplicationController
       redirect_to item_path(@cart_item.item), notice: "個数を選択してください"
     end
   end
-  
+
   private
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :amount)
   end
-  
+
 end

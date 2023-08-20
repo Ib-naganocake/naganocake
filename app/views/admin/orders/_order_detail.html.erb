@@ -11,16 +11,16 @@
       </tr>
     </thead>
     <tbody>
-      <% order_detail.each do |order_detail| %>
-        <%= form_with model: [order, order_detail], url: admin_order_order_detail_path(order, order_detail) do |f| %>
+      <% order_details.each do |order_details| %>
+        <%= form_with model: [order, order_details], url: admin_order_order_detail_path(order, order_details) do |f| %>
           <tr class="align-items-center">
-            <td class="text-left"><%= order_detail.item.name %></td>
-            <td><%= order_detail.price_including_tax.to_s(:delimited) %></td>
-            <td><%= order_detail.amount %></td>
-            <td><%= calculate_subtotal(order_detail).to_s(:delimited) %></td>
+            <td class="text-left"><%= order_details.item.name %></td>
+            <td><%= order_details.price_including_tax.to_s(:delimited) %></td>
+            <td><%= order_details.amount %></td>
+            <td><%= calculate_subtotal(order_details).to_s(:delimited) %></td>
             <td>
               <%= f.select :production_status, OrderDetail.production_statuses.keys.map { |status| [I18n.t("enums.order_detail.production_status.#{status}"), status] },
-              selected: order_detail.production_status, class: "form-control" %>
+              selected: order_details.production_status, class: "form-control" %>
             </td>
             <td><%= f.submit "更新", class: "btn btn-sm btn-success" %></td>
           </tr>

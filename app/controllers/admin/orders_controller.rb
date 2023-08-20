@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
   before_action :set_order, only: [:show, :update]
 
   def show
-    @order_detail = @order.order_details
+    @order_details = @order.order_details
   end
 
   def index

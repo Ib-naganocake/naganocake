@@ -9,7 +9,7 @@
   <p class="<%= flash[:color] %>"><%= flash[:order_detail_notice] %></p>
   <div class="row text-nowrap">
     <div class="col-8">
-      <%= render 'order_detail', order: @order, order_detail: @order_detail %>
+      <%= render 'order_detail', order: @order, order_details: @order_details %>
     </div>
     <div class="col-3 ml-5 mt-auto">
       <%= render 'order_total_amount', order: @order %>

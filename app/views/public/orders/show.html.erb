@@ -1,2 +1,57 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container mt-5">
+  <div class="text-center w-25 ml-5 mb-4">
+    <h3 style="background: #f3f3f3;">注文履歴一覧</h3>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <h5 class="font-weight-bold">注文情報</h5>
+      <table class="table table-bordered">
+        <tr>
+          <td style="background: #f3f3f3;">注文日</td>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td style="background: #f3f3f3;">配送先</td>
+          <td>
+            〒<%= @order.postal_code %></br>
+            <%= @order.shipping_address %></br>
+            <%= @order.name %>
+          </td>
+        </tr>
+        <tr>
+          <td style="background: #f3f3f3;">支払い方法</td>
+          <td>
+            <% if @order.payment_method == "credit_card" %>
+              クレジットカード
+            <% else %>
+              銀行振込
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td style="background: #f3f3f3;">ステータス</td>
+          <td><%= render 'order_status', order: @order %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-4">
+      <h5 class="font-weight-bold">請求情報</h5>
+      <table class="table table-bordered">
+        <tr>
+          <td style="background: #f3f3f3;">商品合計</td>
+          <td><%= @order.total_price %></td>
+        </tr>
+        <tr>
+          <td style="background: #f3f3f3;">配送料</td>
+          <td><%= @order.shipping_fee %></td>
+        </tr>
+        <tr>
+          <td style="background: #f3f3f3;">ご請求額</td>
+          <td>
+            
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

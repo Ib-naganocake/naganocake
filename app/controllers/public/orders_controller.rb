@@ -51,16 +51,18 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.page(params[:page])
+    @orders = Order.page(params[:page]).order(created_at: :desc)
   end
 
   def show
+    @order = Order.find(params[:id])
+    @
   end
 
   private
 
   def order_params
-  params.require(:order).permit(:name, :total_price, :postal_code, :payment_method, :shipping_address , :shipping_fee, :customer_id)
+    params.require(:order).permit(:name, :total_price, :postal_code, :payment_method, :shipping_address , :shipping_fee, :customer_id)
   end
 
 end

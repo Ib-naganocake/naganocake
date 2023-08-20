@@ -20,13 +20,7 @@
         </tr>
         <tr>
           <td style="background: #f3f3f3;">支払い方法</td>
-          <td>
-            <% if @order.payment_method == "credit_card" %>
-              クレジットカード
-            <% else %>
-              銀行振込
-            <% end %>
-          </td>
+          <td><%= @order.payment_method_i18n %></td>
         </tr>
         <tr>
           <td style="background: #f3f3f3;">ステータス</td>
@@ -39,17 +33,15 @@
       <table class="table table-bordered">
         <tr>
           <td style="background: #f3f3f3;">商品合計</td>
-          <td><%= @order.total_price %></td>
+          <td><%= (@order.total_price - @order.shipping_fee).to_s(:delimited) %></td>
         </tr>
         <tr>
           <td style="background: #f3f3f3;">配送料</td>
-          <td><%= @order.shipping_fee %></td>
+          <td><%= @order.shipping_fee.to_s(:delimited) %></td>
         </tr>
         <tr>
           <td style="background: #f3f3f3;">ご請求額</td>
-          <td>
-            
-          </td>
+          <td><%= @order.total_price.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>

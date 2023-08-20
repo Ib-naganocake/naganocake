@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :order_datails, dependent: :destroy
+  has_many :order_details, dependent: :destroy
   belongs_to :customer
 
   validates :total_price, presence:true

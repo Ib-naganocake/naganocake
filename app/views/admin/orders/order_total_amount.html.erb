@@ -1,0 +1,14 @@
+ <table class="table table-borderless">
+  <tr>
+    <th>商品合計</th>
+    <td><%= calculate_total_subtotal(order) %></td>
+  </tr>
+  <tr>
+    <th>送料</th>
+    <td><%= order.shipping_fee %></td>
+  </tr>
+  <tr>
+    <th>請求金額合計</th>
+    <td><%= order.total_price %></td>
+  </tr>
+</table>

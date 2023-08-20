@@ -6,5 +6,11 @@
     </div>
   </div>
   <%= render 'show', order: @order %>
-  <%= render 'order_datail', order: @order, order_datail: @order_datail %>
+  <div class="row">
+    <div class="col-9">
+      <%= render 'order_detail', order: @order, order_detail: @order_detail %>
+    </div>
+    <div class="col-2 offset-1">
+      <%= render 'order_total_amount', order: @order %>
+  </div>
 </div>

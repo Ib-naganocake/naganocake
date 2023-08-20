@@ -5,6 +5,6 @@ class OrderDetail < ApplicationRecord
   validates :price_including_tax, presence:true
   validates :amount, presence:true
 
-  enum production_status: { waiting: 0, producting: 1, complete: 2, impossible: 3 }
+  enum production_status: { impossible: 0, waiting: 1, producting: 2, complete: 3 }
 
 end

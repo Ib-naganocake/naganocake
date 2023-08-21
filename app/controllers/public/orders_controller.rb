@@ -68,7 +68,7 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:name, :total_price, :postal_code, :payment_method, :shipping_address , :shipping_fee, :customer_id)
   end
-  
+
   def is_matching_login_customer
     order = Order.find(params[:id])
     customer = order.customer
@@ -80,6 +80,7 @@ class Public::OrdersController < ApplicationController
   def cart_items_check
     if current_customer.cart_items.blank?
       flash[:notice] = "カートアイテムがありません。"
+      flash[:color] = "text-danger"
       redirect_to root_path
     end
   end

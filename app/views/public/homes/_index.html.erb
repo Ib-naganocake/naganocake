@@ -5,6 +5,9 @@
         <%= image_tag item.get_image(200,150) %>
         <h5><%= item.name %></h5>
       <% end %>
+      <% if item.is_sales == false %>
+        <p class="text-danger">売り切れ</p>
+      <% end %>
       <p>
         <%= number_to_currency(item.price_without_tax, unit: "¥", format: "%u%n") %>
       </p>

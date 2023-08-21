@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :cart_items_check, only: [:new, :confirm, :create]
 
   def new
     @order = Order.new
@@ -65,6 +66,13 @@ class Public::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:name, :total_price, :postal_code, :payment_method, :shipping_address , :shipping_fee, :customer_id)
+  end
+
+  def cart_items_check
+    if current_customer.cart_items.blank?
+      flash[:notice] = "カートアイテムがありません。"
+      redirect_to root_path
+    end
   end
 
 end

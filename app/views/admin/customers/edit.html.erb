@@ -1,5 +1,5 @@
 <div class="container mt-5">
-<p class="text-danger"><%= flash[:notice] %></p>
+  <p class="<%= flash[:color] %>"><%= flash[:notice] %></p>
   <div class="row mt-2">
     <h3 class="px-4" style="background: #f3f3f3"><%= "#{@customer.family_name}#{@customer.first_name}さんの会員情報編集" %></h3>
   </div>
@@ -20,37 +20,37 @@
       <div class="row">
         <table class="table table-borderless">
           <tr>
-            <td class="col-md-4">会員ID</td>
+            <td class="col-4">会員ID</td>
             <td><%= @customer.id %></td>
           </tr>
           <tr>
-            <td class="col-md-4"><%= f.label :family_name, "氏名" %></td>
+            <td class="col-4"><%= f.label :family_name, "氏名" %></td>
             <td><%= f.text_field :family_name, autofocus: true, class: "form-control" %></td>
             <td><%= f.text_field :first_name, class: "form-control" %></td>
           </tr>
           <tr>
-            <td class="col-md-4"><%= f.label :family_name_kana, "フリガナ" %></td>
+            <td class="col-4"><%= f.label :family_name_kana, "フリガナ" %></td>
             <td><%= f.text_field :family_name_kana, class: "form-control" %></td>
             <td><%= f.text_field :first_name_kana, class: "form-control" %></td>
           </tr>
           <tr>
-            <td class="col-md-4"><%= f.label :postal_code, "郵便番号" %></td>
+            <td class="col-4"><%= f.label :postal_code, "郵便番号" %></td>
             <td><%= f.text_field :postal_code, class: "form-control" %></td>
           </tr>
           <tr>
-            <td class="col-md-4"><%= f.label :address, "住所" %></td>
+            <td class="col-4"><%= f.label :address, "住所" %></td>
             <td colspan="2"><%= f.text_field :address, :size=> "50", class: "form-control" %></td>
           </tr>
           <tr>
-            <td class="col-md-4"><%= f.label :telephone_number, "電話番号" %></td>
+            <td class="col-4"><%= f.label :telephone_number, "電話番号" %></td>
             <td><%= f.text_field :telephone_number, class: "form-control" %></td>
           </tr>
           <tr>
-            <td class="col-md-4"><%= f.label :email, "メールアドレス" %></td>
+            <td class="col-4"><%= f.label :email, "メールアドレス" %></td>
             <td><%= f.email_field :email, class: "form-control" %></td>
           </tr>
           <tr>
-            <td class="col-md-4">会員ステータス</td>
+            <td class="col-4">会員ステータス</td>
             <td>
               <%= f.radio_button :is_active, true %>
               <%= f.label :is_active_true, "有効" %>

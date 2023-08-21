@@ -19,7 +19,12 @@
             <td><%= order_details.amount %></td>
             <td><%= calculate_subtotal(order_details).to_s(:delimited) %></td>
             <td><%= f.select :production_status, options_for_select(production_status_options(order_details)), class: "form-control" %></td>
-            <td><%= f.submit "更新", class: "btn btn-sm btn-success" %></td>
+            <td>
+              <%= production_status_display(order_details) %>
+              <% if order_details.production_status == "waiting" || order_details.production_status == "producting" %>
+                <%= f.submit "更新", class: "btn btn-sm btn-success" %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       <% end %>

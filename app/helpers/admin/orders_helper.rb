@@ -15,25 +15,32 @@ module Admin::OrdersHelper
   def transaction_status_options(order)
     case order.transaction_status
     when "waiting"
-      options_for_waiting(order)
+      order_options_for_waiting(order)
     when "preparing"
-      options_for_preparing(order)
+      order_options_for_preparing(order)
     else
       [[I18n.t("enums.order.transaction_status.#{order.transaction_status}"), order.transaction_status]]
     end
   end
 
-  def options_for_waiting(order)
+  def order_options_for_waiting(order)
     [
       [I18n.t("enums.order.transaction_status.#{order.transaction_status}"), order.transaction_status],
       [I18n.t("enums.order.transaction_status.paid_up"), "paid_up"]
     ]
   end
 
-  def options_for_preparing(order)
+  def order_options_for_preparing(order)
     [
       [I18n.t("enums.order.transaction_status.#{order.transaction_status}"), order.transaction_status],
       [I18n.t("enums.order.transaction_status.shipped"), "shipped"]
     ]
+  end
+
+  def transaction_status_display(order)
+    case order.transaction_status
+    when "paid_up", "producting"
+      content_tag(:div, "製作ステータスを更新してください", class: "text-danger")
+    end
   end
 end

@@ -26,11 +26,12 @@
       <tr>
         <th class="line-height">注文ステータス</th>
         <td class="d-flex align-items-center">
-          <%= f.select :transaction_status, options_for_select(transaction_status_options(order)), class: "form-control" %>
-          <% if transaction_status_change_allowed?(order)
-            <%= f.submit '更新', class: "btn btn-sm btn-success ml-3" %>
-          <% else %>
-           <p>製作ステータスを変更してください</p>
+          <div class="mr-3">
+            <%= f.select :transaction_status, options_for_select(transaction_status_options(order)), class: "form-control" %>
+          </div>
+          <%= transaction_status_display(order) %>
+          <% if order.transaction_status == "waiting" ||  order.transaction_status == "preparing" %>
+            <%= f.submit '更新', class: "btn btn-sm btn-success" %>
           <% end %>
         </td>
       </tr>

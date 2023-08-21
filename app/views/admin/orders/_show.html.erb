@@ -26,7 +26,7 @@
       <tr>
         <th class="line-height">注文ステータス</th>
         <td class="d-flex align-items-center">
-          <%= f.select :transaction_status, options_for_select(transaction_status_options), class: "form-control" %>
+          <%= f.select :transaction_status, options_for_select(transaction_status_options(order)), class: "form-control" %>
           <%= f.submit '更新', class: "btn btn-sm btn-success ml-3" %>
         </td>
       </tr>

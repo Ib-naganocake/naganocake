@@ -17,6 +17,19 @@ ja:
         producting: "製作中"
         complete: "製作完了"
   activerecord:
+    attributes:
+      item:
+        image: "画像"
+        name: "商品名"
+        description: "商品説明"
+        price_without_tax: "税抜価格"
+        genre: "ジャンル"
+      genre:
+        name: "ジャンル名"
+      address:
+        name: "宛名"
+        postal_code: "郵便番号"
+        address: "住所"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

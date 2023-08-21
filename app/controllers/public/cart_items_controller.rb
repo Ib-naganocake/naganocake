@@ -49,7 +49,7 @@ class Public::CartItemsController < ApplicationController
     cart_item = CartItem.find(params[:id])
     customer = cart_item.customer
     unless customer.id == current_customer.id
-      redirect_to addresses_path
+      redirect_to cart_items_path
     end
   end
 

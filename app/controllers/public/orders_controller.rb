@@ -73,7 +73,7 @@ class Public::OrdersController < ApplicationController
     order = Order.find(params[:id])
     customer = order.customer
     unless customer.id == current_customer.id
-      redirect_to addresses_path
+      redirect_to orders_path
     end
   end
 

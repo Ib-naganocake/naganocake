@@ -7,12 +7,12 @@
         <% end %>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-3">
       <% if customer_signed_in?%>
         <p><%= "ようこそ、#{current_customer.family_name}#{current_customer.first_name}さん！" %></p>
       <% end %>
     </div>
-    <div class="col-5">
+    <div class="col-6">
       <div class="my-2 row justify-content-end">
         <% if admin_signed_in? %>
           <div class="mr-3 menu"><%= link_to '商品一覧', admin_items_path, class: "btn btn-outline-secondary" %></div>
@@ -32,9 +32,12 @@
           <div class="menu"><%= link_to 'ログイン', customer_session_path, class: "btn btn-outline-secondary" %></div>
         <% end %>
       </div>
-      <!-- 検索窓実装未 -->
       <div class="row justify-content-end">
-        <input type="text" placeholder="Search">
+        <% if admin_signed_in? %>
+          <%= render 'admin/searches/search' %>
+        <% else %>
+          <%= render 'public/searches/search' %>
+        <% end %>
       </div>
     </div>
   </div>

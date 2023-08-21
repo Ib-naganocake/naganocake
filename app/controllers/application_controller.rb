@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
   def admin_controller?
     self.class.to_s.start_with?("Admin::")
   end
+
 end

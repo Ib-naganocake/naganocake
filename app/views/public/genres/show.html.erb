@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-2">
+      <%= render 'public/items/genre_list', genres: @genres %>
+    </div>
+    <div class="col-10">
+      <div class="row m-3">
+        <div class="col-3">
+          <h3 class="px-4 text-center" style="background: #f3f3f3"><%= @genre.name %>一覧</h3>
+        </div>
+        <p>(全<%= @items.count %>件)</p>
+      </div>
+      <%= render 'public/homes/index', items: @items %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= paginate @items %>
+  </div>
+</div>

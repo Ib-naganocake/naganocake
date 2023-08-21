@@ -5,10 +5,10 @@
   </div>
   <div class="row text-center">
     <div class="col-6 ml-3 mt-5 mb-5">
-      <%= render 'new_form', genre: @genre %>
+      <%= render "new_form", genre: @genre %>
     </div>
     <div class="col-6">
-      <%= render 'index', genres: @genres %>
+      <%= render "index", genres: @genres %>
       <%= paginate @genres %>
     </div>
   </div>

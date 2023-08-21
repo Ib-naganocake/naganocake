@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :is_matching_login_customer, only: [:show]
 
   def new
     @order = Order.new
@@ -67,6 +68,12 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:name, :total_price, :postal_code, :payment_method, :shipping_address , :shipping_fee, :customer_id)
   end
   
-  
+  def is_matching_login_customer
+    order = Order.find(params[:id])
+    customer = order.customer
+    unless customer.id == current_customer.id
+      redirect_to addresses_path
+    end
+  end
 
 end

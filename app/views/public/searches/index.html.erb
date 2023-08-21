@@ -6,9 +6,9 @@
     <div class="col-10">
       <div class="row m-3">
         <div class="col-3 mr-auto">
-          <h3 class="px-4 text-center" style="background: #f3f3f3"><%= @word %>一覧</h3>
+          <h3 class="px-4 text-center" style="background: #f3f3f3">検索結果</h3>
         </div>
-        <h5>検索結果<%= @search_items.count %>件です</h5>
+        <p>"<%= @word %>"の検索結果は<%= @search_items.count %>件です</p>
       </div>
       <%= render 'public/homes/index', items: @items %>
     </div>

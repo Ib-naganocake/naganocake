@@ -13,6 +13,7 @@ class Admin::GenresController < ApplicationController
     else
       flash[:notice] = "ジャンルの追加に失敗しました。"
       flash[:color] = "text-danger"
+      @genres = Genre.page(params[:page])
       render :index
     end
   end
@@ -30,6 +31,7 @@ class Admin::GenresController < ApplicationController
     else
       flash[:notice] = "ジャンルの編集に失敗しました。"
       flash[:color] = "text-danger"
+      @genre = Genre.find(params[:id])
       render :edit
     end
   end

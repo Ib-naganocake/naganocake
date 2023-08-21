@@ -1,13 +1,14 @@
 class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!
+  before_action :is_matching_login_customer, only: [:edit,:update,:destroy]
   
   def index
-    @addresses = Address.page(params[:page])
+    @addresses = current_customer.addresses.page(params[:page])
 
     @address = Address.new
   end
 
-  def create
+  def create  
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
@@ -41,5 +42,13 @@ class Public::AddressesController < ApplicationController
   def address_params
     params.required(:address).permit(:postal_code, :address, :name)
   end
-
+  
+  def is_matching_login_customer
+    address = Address.find(params[:id])
+    customer = address.customer
+    unless customer.id == current_customer.id
+      redirect_to addresses_path
+    end
+  end
+  
 end

@@ -2,7 +2,7 @@
   <p class="border-bottom"><strong>ジャンル検索</strong></p>
   <ul class="px-3 py-2 text-left" style="list-style: none;">
     <% genres.each do |genre| %>
-      <li class="mb-1"><%= genre.name %></li>
+      <li class="mb-1"><%= link_to genre.name, genre_path(genre) %></li>
     <% end %>
   </ul>
 </div>

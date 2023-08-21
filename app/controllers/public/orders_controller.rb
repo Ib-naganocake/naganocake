@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :cart_items_check, only: [:new, :confirm, :create]
   before_action :is_matching_login_customer, only: [:show]
 
   def new
@@ -73,6 +74,13 @@ class Public::OrdersController < ApplicationController
     customer = order.customer
     unless customer.id == current_customer.id
       redirect_to addresses_path
+    end
+  end
+
+  def cart_items_check
+    if current_customer.cart_items.blank?
+      flash[:notice] = "カートアイテムがありません。"
+      redirect_to root_path
     end
   end
 

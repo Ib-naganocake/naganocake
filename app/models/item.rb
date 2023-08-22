@@ -11,6 +11,11 @@ class Item < ApplicationRecord
 
   # 商品画像のサイズ調整
   def get_image(width, height)
+    unless image.attached?
+      # 商品画像がない場合はimages/no-image.jpgを参照
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
     image.variant(resize_to_limit: [width, height]).processed
   end
 

@@ -4,5 +4,8 @@
       <h3 style="background: #f3f3f3">商品編集</h3>
     </div>
   </div>
+  <div class="text-center">
+    <%= render 'layouts/error', obj: @item %>
+  </div>
   <%= render 'form', item: @item %>
 </div>

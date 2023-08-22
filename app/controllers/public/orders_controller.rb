@@ -23,7 +23,12 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:postal_code]
       @order.shipping_address = params[:order][:shipping_address]
       @order.name = params[:order][:name]
-      if @order.postal_code.blank? || @order.shipping_address.blank? || @order.name.blank?
+      if @order.valid?
+        if @order.postal_code.blank? || @order.shipping_address.blank? || @order.name.blank?
+          @addresses = current_customer.addresses
+          render :new
+        end
+      else
         @addresses = current_customer.addresses
         render :new
       end

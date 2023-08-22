@@ -30,6 +30,13 @@ ja:
         name: "宛名"
         postal_code: "郵便番号"
         address: "住所"
+      order:
+        total_price: "合計金額"
+        shipping_fee: "送料"
+        payment_method: "支払い方法"
+        postal_code: "郵便番号"
+        shipping_address: "住所"
+        name: "宛名"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -1,10 +1,10 @@
 <div class="container">
-  <p class="text-danger"><%= flash[:notice] %></p>
   <div class="row m-4">
     <div class="col-3 text-center">
       <h2 style="background: #f3f3f3"> 注文情報入力 </h2>
     </div>
   </div>
+  <div><%= render 'layouts/error', obj: @order %></div>
   <div>
     <%= form_with model: @order, url: confirm_orders_path, method: :post do |f| %>
       <h4>支払い方法</h4>

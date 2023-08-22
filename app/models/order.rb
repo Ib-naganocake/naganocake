@@ -13,4 +13,13 @@ class Order < ApplicationRecord
 
   enum payment_method: { credit_card: 0, transfer: 1 }
   enum transaction_status: { waiting: 0, paid_up: 1, producting: 2, preparing: 3, shipped: 4 }
+
+  def valid_columns?(*columns)
+    valid?
+    cols = columns.flatten.collect(&:to_s)
+    errors.keys.each do |k|
+      errors.delete(k) unless cols.include?(k.to_s)
+    end
+    errors.empty?
+  end
 end

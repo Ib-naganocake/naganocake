@@ -23,9 +23,8 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:postal_code]
       @order.shipping_address = params[:order][:shipping_address]
       @order.name = params[:order][:name]
-      unless @order.valid?
+      unless @order.valid_columns?(:name, :shipping_address, :postal_code)
         @addresses = current_customer.addresses
-        flash.now[:notice] = "新しいお届け先の入力に誤りがあります。"
         render :new
       end
     else

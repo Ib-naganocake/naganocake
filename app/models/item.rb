@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :image, presence:true
   validates :name, presence:true, uniqueness: true
   validates :description, presence:true
-  validates :price_without_tax, presence:true
+  validates :price_without_tax, presence:true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
 
   # 商品画像のサイズ調整
   def get_image(width, height)

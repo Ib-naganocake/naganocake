@@ -14,13 +14,17 @@ class Admin::CustomersController < ApplicationController
   def update
     @original_customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to admin_customer_path(@customer), notice: "会員情報の編集に成功しました。"
+      flash[:notice] = "会員情報の編集に成功しました。"
+      flash[:color] = "text-success"
+      redirect_to admin_customer_path(@customer)
     else
     # エラー箇所に元のデータを代入する
       @original_customer.attributes.each do |attr, value|
         @customer[attr] = value unless @customer.errors[attr].empty?
     end
-      render :edit, notice: "会員情報の編集に失敗しました。"
+      flash[:notice] = "会員情報の編集に失敗しました。"
+      flash[:color] = "text-danger"
+      render :edit
     end
   end
 

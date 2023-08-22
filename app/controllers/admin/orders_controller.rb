@@ -8,11 +8,12 @@ class Admin::OrdersController < ApplicationController
   def index
     customer_id = params[:customer_id]
     @customer = Customer.find(customer_id)
-    @orders = @customer.orders.page(params[:page])
+    @orders = @customer.orders.page(params[:page]).order(created_at: :desc)
   end
 
   def update
     if @order.update(order_params)
+      update_production_status
       flash[:order_notice] = "注文ステータスの更新に成功しました。"
       flash[:color] = "text-success"
       redirect_to admin_order_path(@order)
@@ -31,5 +32,11 @@ class Admin::OrdersController < ApplicationController
 
   def set_order
     @order = Order.find(params[:id])
+  end
+
+  def update_production_status
+    if order_params[:transaction_status] == "paid_up"
+      @order.order_details.update_all(production_status: 1)
+    end
   end
 end

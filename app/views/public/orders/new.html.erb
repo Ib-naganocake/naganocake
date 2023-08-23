@@ -17,7 +17,7 @@
       <h4 class="mt-3">お届け先</h4>
       <div>
         <%= f.radio_button :select_address, 0, checked: "checked", class: "ml-4"%>
-        <%= f.label "ご自身の住所" %>
+        <%= f.label :select_address_0, "ご自身の住所" %>
       </div>
       <div class="ml-5">
         <%= "〒#{current_customer.postal_code} #{current_customer.address}" %>
@@ -28,7 +28,7 @@
       <% unless current_customer.addresses.blank? %>
         <div>
           <%= f.radio_button :select_address, 1, class: "ml-4 mt-3"%>
-          <%= f.label "登録済み住所から選択" %>
+          <%= f.label :select_address_1, "登録済み住所から選択" %>
         </div>
         <div class="ml-5 ">
           <%= f.select :address_id, options_from_collection_for_select(@addresses, :id, :address_display) %>
@@ -36,7 +36,7 @@
       <% end %>
       <div>
         <%= f.radio_button :select_address, 2, class: "ml-4 mt-3" %>
-        <%= f.label "新しいお届け先" %>
+        <%= f.label :select_address_2, "新しいお届け先" %>
       </div>
 
       <div class="field form-group ml-5">

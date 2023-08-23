@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <%= form_with(model: [ :admin, item ]) do |f| %>
-    <table class="table table-borderless table-sm">
+    <table class="table">
       <tr>
         <td><%= f.label :商品画像 %></td>
         <td><%= f.file_field :image, accept: "image/*", class: "form-control-file" %></td>

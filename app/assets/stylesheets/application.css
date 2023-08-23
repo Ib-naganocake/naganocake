@@ -13,8 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-
-.title-background {
-  background-color: #f3f3f3;
-}

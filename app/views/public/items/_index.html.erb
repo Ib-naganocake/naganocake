@@ -9,7 +9,7 @@
       <h5 class="text-danger m-0">売り切れ</h5>
     <% end %>
     <h5>
-      <%= link_to item_path(item) do %>
+      <%= link_to item_path(item), class: "text-reset" do %>
         <%= item.name %>
       <% end %>
     </h5>

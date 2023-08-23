@@ -1,10 +1,10 @@
-<div class="container mt-5 mb-5">
+<div class="container p-5">
   <p class="<%= flash[:color] %>"><%= flash[:notice] %></p>
   <div class="row mt-2 mb-3 offset-1 text-center">
     <h3 class="px-4 title-background"><%= "#{@customer.family_name}#{@customer.first_name}さんの会員詳細" %></h3>
   </div>
   <div class="row">
-    <table class="table table-borderless col-5">
+    <table class="table col-5">
       <tr>
         <td>会員ID</td>
         <td><%= @customer.id %></td>

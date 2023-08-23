@@ -1,4 +1,4 @@
-<div class="container mt-5 mb-5">
+<div class="container p-5">
   <p class="text-success"><%= flash[:notice] %></p>
   <div class="row mt-2 mb-3 offset-1 text-center">
     <div　class="col-3">
@@ -10,7 +10,7 @@
       <%= image_tag @item.get_image(300,250) %>
     </div>
     <div class="col-4">
-      <table class="table table-borderless">
+      <table class="table">
         <tr>
           <td>商品名</td>
           <td><%= @item.name %></td>

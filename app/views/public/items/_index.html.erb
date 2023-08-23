@@ -4,7 +4,7 @@
       <%= link_to item_path(item) do %>
         <%= image_tag item.get_image(200,150) %>
       <% end %>
-    </div> 
+    </div>
     <% if item.is_sales == false %>
       <h5 class="text-danger m-0">売り切れ</h5>
     <% end %>
@@ -14,7 +14,7 @@
       <% end %>
     </h5>
     <p>
-      ￥<%= item.price_without_tax %>
+      <%= number_to_currency(item.price_without_tax, unit: "¥", format: "%u%n") %>
     </p>
   </div>
 <% end %>

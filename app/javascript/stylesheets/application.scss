@@ -1,10 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
 
 .main-background {
-  background-image: url('../../assets/images/main-background.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background-image: url('../../assets/images/main-image.jpg');
+}
+
+.bar-color {
+  background-color: #66351a;
 }
 
 .card-img {

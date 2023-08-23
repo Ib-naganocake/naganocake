@@ -30,7 +30,7 @@
     <div class="col-1"></div>
     <div class="col-5">
       <% if @cart_items.present? %>
-        <table class="table table-bordered">
+        <table class="table">
           <tr>
             <td>合計金額</td>
             <td>¥<%= @total_price.floor.to_s(:delimited) %></td>

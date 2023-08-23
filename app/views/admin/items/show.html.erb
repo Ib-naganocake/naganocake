@@ -1,15 +1,15 @@
 <div class="container py-5">
   <p class="text-success"><%= flash[:notice] %></p>
-  <div class="row mt-2 mb-3 offset-1 text-center">
-    <div　class="col-3">
+  <div class="row mt-2 mb-3 text-center">
+    <div class="col-3">
       <h3 class="px-4 title-background">商品詳細</h3>
     </div>
   </div>
-  <div class="row offset-4">
+  <div class="row mx-auto">
     <div class="col-3">
       <%= image_tag @item.get_image(300,250) %>
     </div>
-    <div class="col-4">
+    <div class="col-6 offset-1">
       <table class="table">
         <tr>
           <td>商品名</td>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
           <td>商品説明</td>
-          <td><%= simple_format(@item.description) %></td>
+          <td class="w-75"><%= simple_format(@item.description) %></td>
         </tr>
         <tr>
           <td>ジャンル</td>
@@ -49,4 +49,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

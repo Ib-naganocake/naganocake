@@ -10,7 +10,9 @@
         </div>
         <p>"<%= @word %>"の検索結果は<%= @search_items.count %>件です</p>
       </div>
-      <%= render 'public/homes/index', items: @items %>
+      <div class="w-100 d-flex flex-wrap">
+        <%= render 'public/items/index', items: @items %>
+      </div>
     </div>
   </div>
   <div class="row justify-content-center">

@@ -1,9 +1,7 @@
-<div class="container">
+<div class="container mt-5 mb-5">
   <p class="text-success"><%= notice %></p>
-  <div class="row m-4">
-    <div class="col-3 text-center">
-      <h2 style="background: #f3f3f3"> マイページ </h2>
-    </div>
+  <div class="row mt-2 mb-3 offset-1 text-center">
+    <h3 class="px-4 title-background">マイページ</h3>
   </div>
 
   <div class="row mb-2">
@@ -16,27 +14,27 @@
   <div class="row mb-4">
     <table class="table table-bordered col-8">
       <tr>
-        <td class="bg-light">氏名</td>
+        <td class="title-background">氏名</td>
         <td><%= @customer.family_name %> <%= @customer.first_name %></td>
       </tr>
       <tr>
-        <td class="bg-light">カナ</td>
+        <td class="title-background">カナ</td>
         <td><%= @customer.family_name_kana %> <%= @customer.first_name_kana %></td>
       </tr>
       <tr>
-        <td class="bg-light">郵便番号</td>
+        <td class="title-background">郵便番号</td>
         <td><%= @customer.postal_code %></td>
       </tr>
       <tr>
-        <td class="bg-light">住所</td>
+        <td class="title-background">住所</td>
         <td><%= @customer.address %></td>
       </tr>
       <tr>
-        <td class="bg-light">電話番号</td>
+        <td class="title-background">電話番号</td>
         <td><%= @customer.telephone_number %></td>
       </tr>
       <tr>
-        <td class="bg-light">メールアドレス</td>
+        <td class="title-background">メールアドレス</td>
         <td><%= @customer.email %></td>
       </tr>
     </table>

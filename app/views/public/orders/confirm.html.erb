@@ -1,14 +1,12 @@
-<div class="container">
+<div class="container mt-5 mb-5">
   <p class="text-success"><%= notice %></p>
-  <div class="row m-4">
-    <div class="col-3 text-center">
-      <h2 style="background: #f3f3f3"> 注文情報確認 </h2>
-    </div>
+  <div class="row mt-2 mb-3 offset-1 text-center">
+    <h3 class="px-4 title-background">注文情報確認</h3>
   </div>
   <div class="row">
     <div class="col-7">
       <table class="table table-bordered">
-        <thead>
+        <thead class="title-background">
           <tr>
             <th>商品名</th>
             <th>単価(税込み)</th>
@@ -36,16 +34,16 @@
     <div class="col-sm-3">
       <table class="table table-bordered">
         <tr>
-          <th>送料</th>
+          <th class="title-background">送料</th>
           <% @order.shipping_fee = 800 %>
           <td>¥<%= @order.shipping_fee %> </td>
         </tr>
         <tr>
-          <th>商品合計</th>
+          <th class="title-background">商品合計</th>
           <td>¥<%= total.floor.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <th>請求合計</th>
+          <th class="title-background">請求合計</th>
           <td>
             <% @order.total_price = @order.shipping_fee + total %>
             ¥<%= @order.total_price.to_s(:delimited) %>

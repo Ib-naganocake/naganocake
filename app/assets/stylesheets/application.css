@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
+.title-background {
+  background: #f3f3f3;
+}

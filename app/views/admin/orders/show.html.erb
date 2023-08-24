@@ -1,17 +1,11 @@
 <div class="container py-5">
-  <p class="<%= flash[:color] %>"><%= flash[:order_notice] %></p>
+  <p class="<%= flash[:color] %>"><%= flash[:notice] %></p>
   <div class="row mt-2 mb-3 offset-1 text-center">
     <h3 class="px-4 title-background">注文履歴詳細</h3>
   </div>
-  <div class="col-10 mx-auto">
-    <%= render 'show', order: @order %>
-  </div>
-  <p class="<%= flash[:color] %>"><%= flash[:order_detail_notice] %></p>
+  <%= render 'show', order: @order %>
   <div class="row text-nowrap">
-    <div class="col-8">
-      <%= render 'order_detail', order: @order, order_details: @order_details %>
-    </div>
-    <div class="col-3 ml-5 mt-auto">
-      <%= render 'order_total_amount', order: @order %>
+    <%= render 'order_detail', order: @order, order_details: @order_details %>
+    <%= render 'order_total_amount', order: @order %>
   </div>
 </div>

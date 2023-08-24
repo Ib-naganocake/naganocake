@@ -9,9 +9,9 @@
   </div>
 
   <%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
-    <div class="row">
-      <div class="col-10 mx-auto">
-        <table class="table">
+    <div class="col-8">
+      <div class="row">
+        <table class="table table-borderless">
           <tr>
             <td class="col-4">会員ID</td>
             <td><%= @customer.id %></td>

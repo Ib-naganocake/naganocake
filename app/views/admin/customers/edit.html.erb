@@ -11,7 +11,7 @@
   <%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
     <div class="col-8">
       <div class="row">
-        <table class="table">
+        <table class="table table-borderless">
           <tr>
             <td class="col-4">会員ID</td>
             <td><%= @customer.id %></td>

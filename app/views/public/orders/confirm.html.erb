@@ -5,7 +5,7 @@
   </div>
   <div class="row">
     <div class="col-7">
-      <table class="table">
+      <table class="table table-list">
         <thead class="title-background">
           <tr>
             <th>商品名</th>
@@ -32,7 +32,7 @@
       </table>
     </div>
     <div class="col-sm-3">
-      <table class="table">
+      <table class="table table-list">
         <tr>
           <th class="title-background">送料</th>
           <% @order.shipping_fee = 800 %>
@@ -54,7 +54,7 @@
   </div>
   <div class="row">
     <div class="col-7">
-      <table class="table">
+      <table class="table table-list">
         <tr>
           <th>支払い方法</th>
           <td><%= @order.payment_method_i18n %></td>

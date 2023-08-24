@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-8">
       <h5 class="font-weight-bold">注文情報</h5>
-      <table class="table">
+      <table class="table table-list">
         <tr>
           <td class="title-background">注文日</td>
           <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
@@ -30,7 +30,7 @@
     </div>
     <div class="col-4">
       <h5 class="font-weight-bold">請求情報</h5>
-      <table class="table">
+      <table class="table table-list">
         <tr>
           <td class="title-background">商品合計</td>
           <td><%= (@order.total_price - @order.shipping_fee).to_s(:delimited) %></td>
@@ -49,7 +49,7 @@
   <div class="row">
     <div class="col-10">
       <h5 class="font-weight-bold">注文内容</h5>
-      <table class="table">
+      <table class="table table-list">
         <tr class="title-background">
           <td>商品</td>
           <td>単価(税込み)</td>

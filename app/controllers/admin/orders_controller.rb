@@ -14,11 +14,11 @@ class Admin::OrdersController < ApplicationController
   def update
     if @order.update(order_params)
       update_production_status
-      flash[:order_notice] = "注文ステータスの更新に成功しました。"
+      flash[:notice] = "注文ステータスの更新に成功しました。"
       flash[:color] = "text-success"
       redirect_to admin_order_path(@order)
     else
-      flash[:order_notice] = "注文ステータスの更新に失敗しました。"
+      flash[:notice] = "注文ステータスの更新に失敗しました。"
       flash[:color] = "text-danger"
       render :show
     end

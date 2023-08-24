@@ -1,6 +1,7 @@
-<table class="table">
+<table class="table text-left">
   <thead class="title-background">
     <tr>
+      <th></th>
       <th>ジャンル</th>
       <th></th>
     </tr>
@@ -8,8 +9,9 @@
   <tbody>
     <% genres.each do |genre| %>
       <tr>
-        <td class="text-left"><%= genre.name %></td>
-        <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success" %></td>
+        <th></th>
+        <td class="align-middle"><%= genre.name %></td>
+        <td class="text-center"><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>

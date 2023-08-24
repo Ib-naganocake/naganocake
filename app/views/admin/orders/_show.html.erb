@@ -1,40 +1,42 @@
 <div class="row mt-3">
-  <table class="table table-list">
-    <%= form_with model: order, url: admin_order_path(order) do |f| %>
-      <tr>
-        <th>購入者</th>
-        <td>
-          <u><%= link_to customer_full_name(order), admin_customer_path(order.customer), class: "text-reset mr-4" %></u>
-          <%= link_to "#{customer_full_name(order)}さんの注文履歴一覧へ", admin_orders_path(customer_id: order.customer.id) %>
-        </td>
-      </tr>
-      <tr>
-        <th>注文日</th>
-        <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
-      </tr>
-      <tr>
-        <th>配送先</th>
-        <td>
-          〒<%= "#{order.postal_code} #{order.shipping_address}" %><br>
-          <%= order.name %>
-        </td>
-      </tr>
-      <tr>
-        <th>支払方法</th>
-        <td><%= order.payment_method_i18n %></td>
-      </tr>
-      <tr>
-        <th class="line-height">注文ステータス</th>
-        <td class="d-flex align-items-center">
-          <div class="mr-3">
-            <%= f.select :transaction_status, options_for_select(transaction_status_options(order)), class: "form-control" %>
-          </div>
-          <%= transaction_status_display(order) %>
-          <% if order.transaction_status == "waiting" ||  order.transaction_status == "preparing" %>
-            <%= f.submit '更新', class: "btn btn-sm btn-success" %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+  <div class="col-10 mx-auto">
+    <table class="table table-list">
+      <%= form_with model: order, url: admin_order_path(order) do |f| %>
+        <tr>
+          <th>購入者</th>
+          <td>
+            <u><%= link_to customer_full_name(order), admin_customer_path(order.customer), class: "text-reset mr-4" %></u>
+            <%= link_to "#{customer_full_name(order)}さんの注文履歴一覧へ", admin_orders_path(customer_id: order.customer.id) %>
+          </td>
+        </tr>
+        <tr>
+          <th>注文日</th>
+          <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td>
+            〒<%= "#{order.postal_code} #{order.shipping_address}" %><br>
+            <%= order.name %>
+          </td>
+        </tr>
+        <tr>
+          <th>支払方法</th>
+          <td><%= order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <th class="line-height">注文ステータス</th>
+          <td class="d-flex align-items-center">
+            <div class="mr-3">
+              <%= f.select :transaction_status, options_for_select(transaction_status_options(order)), class: "form-control" %>
+            </div>
+            <%= transaction_status_display(order) %>
+            <% if order.transaction_status == "waiting" ||  order.transaction_status == "preparing" %>
+              <%= f.submit '更新', class: "btn btn-sm btn-success" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

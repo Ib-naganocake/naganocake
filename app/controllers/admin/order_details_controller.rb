@@ -3,11 +3,11 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail = OrderDetail.find(params[:id])
     if @order_detail.update(order_detail_params)
       update_transaction_status
-      flash[:order_detail_notice] = "製作ステータスの更新に成功しました。"
+      flash[:notice] = "製作ステータスの更新に成功しました。"
       flash[:color] = "text-success"
       redirect_to admin_order_path(@order_detail.order)
     else
-      flash[:order_detail_notice] = "製作ステータスの更新に失敗しました。"
+      flash[:notice] = "製作ステータスの更新に失敗しました。"
       flash[:color] = "text-danger"
       redirect_back(fallback_location: admin_order_path(@order_detail.order))
     end

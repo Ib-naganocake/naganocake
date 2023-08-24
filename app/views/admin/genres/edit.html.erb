@@ -3,7 +3,11 @@
   <div class="row mt-2 mb-3 offset-1 text-center">
     <h3 class="px-4 title-background">ジャンル編集</h3>
   </div>
-  <div class="row ml-3 mb-5 text-center">
-    <%= render "edit_form", genre: @genre %>
+  <div class="row text-center">
+    <div class="col-10 mx-auto">
+      <div class="mb-3">
+        <%= render "edit_form", genre: @genre %>
+      </div>
+    </div>
   </div>
 </div>

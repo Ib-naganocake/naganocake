@@ -3,6 +3,7 @@
     <h3 class="px-4 title-background">注文履歴一覧</h3>
   </div>
   <div class="row">
+    <div class="col-10 mx-auto">
       <table class="table table-list">
         <tr class="title-background">
           <th>注文日</th>
@@ -15,7 +16,7 @@
         <% @orders.each do |order| %>
           <tr>
             <th><%= order.created_at.strftime('%Y/%m/%d') %></th>
-            <th>
+            <th style="width: 35%">
               〒<%= order.postal_code %></br>
               <%= order.shipping_address %></br>
               <%= order.name %>

@@ -1,0 +1,8 @@
+ <div class="border border-dark text-center">
+  <p class="border-bottom border-dark title-background m-0"><strong>ジャンル検索</strong></p>
+  <ul class="px-3 py-2 text-left bg-light m-0" style="list-style: none;">
+    <% genres.each do |genre| %>
+      <li class="mb-1"><%= link_to genre.name, genre_path(genre), class: "text-reset"%></li>
+    <% end %>
+  </ul>
+</div>

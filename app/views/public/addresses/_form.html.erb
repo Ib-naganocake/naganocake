@@ -1,0 +1,27 @@
+<%= form_with model: address do |f| %>
+  <div class="mb-3 row">
+    <label class="col-3">郵便番号(ハイフンなし)</label>
+    <div class="col-3 p-0">
+      <%= f.text_field :postal_code, class:"form-control", placeholder:"0000000", autofocus: true, autocomplete: "postal_code" %>
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label class="col-3">住所</label>
+    <div class="col-6 p-0">
+      <%= f.text_field :address, class:"form-control", placeholder:"東京都渋谷区代々木神園町0-0", autocomplete: "address" %>
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label class="col-3">宛名</label>
+    <div class="col-3 p-0">
+      <%= f.text_field :name, class:"form-control", placeholder:"令和道子", autocomplete: "name" %>
+    </div>
+    <div class="col-2 offset-3 p-0">
+      <% if address.new_record? %>
+        <%= f.submit '新規登録', class:"btn btn-success btn-block" %>
+      <% else %>
+        <%= f.submit '編集', class:"btn btn-success btn-block" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

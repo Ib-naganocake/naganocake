@@ -1,0 +1,21 @@
+<table class="table table-list">
+  <tr class="title-background">
+    <th>郵便番号</th>
+    <th>住所</th>
+    <th>宛名</th>
+    <th></th>
+  </tr>
+
+  <% addresses.each do |address| %>
+    <tr>
+      <th><%= address.postal_code %></th>
+      <th><%= address.address %></th>
+      <th><%= address.name %></th>
+      <th>
+        <%= link_to '編集する', edit_address_path(address), class:"btn btn-success mx-1" %>
+        <%= link_to '削除する', address_path(address), method: :delete, class:"btn btn-danger mx-1", data: { confirm: "本当に削除しますか？" } %>
+      </th>
+    </tr>
+  <% end %>
+</table>
+<%= paginate addresses %>

@@ -1,0 +1,15 @@
+<div class="container mt-5 mb-5">
+  <div class="row mt-2 mb-3 offset-1 text-center">
+    <h3 class="px-4 title-background">配送先編集</h3>
+  </div>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <div class="ml-5">
+        <%= render 'layouts/error', obj: @address %>
+      </div>
+      <div class="my-5">
+        <%= render 'form', address: @address %>
+      </div>
+    </div>
+  </div>
+</div>

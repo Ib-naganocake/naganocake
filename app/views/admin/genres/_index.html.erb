@@ -1,0 +1,18 @@
+<table class="table text-left table-list">
+  <thead class="title-background">
+    <tr>
+      <th></th>
+      <th>ジャンル</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% genres.each do |genre| %>
+      <tr>
+        <th></th>
+        <td class="align-middle"><%= genre.name %></td>
+        <td class="text-center"><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

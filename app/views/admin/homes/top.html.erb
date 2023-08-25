@@ -1,0 +1,31 @@
+<div class="container py-5">
+  <p class="text-success"><%= flash[:notice] %></p>
+  <div class="row mt-2 mb-3 offset-1 text-center">
+    <h3 class="px-4 title-background">注文履歴一覧</h3>
+  </div>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class="table table-list">
+        <thead class="title-background">
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><u><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(order), data: { turbolinks: false }, class: "text-reset" %></u></td>
+              <td><%= customer_full_name(order) %></td>
+              <td><%= calculate_order_total_amount(order) %></td>
+              <td><%= order.transaction_status_i18n %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= paginate @orders %>
+</div>
